@@ -3,7 +3,7 @@
 #define LISTA_H
 
 #include <iostream>
-#include <list>
+#include <vector>
 #include <string>
 using namespace std;
 
@@ -19,20 +19,21 @@ public:
     void cifrar(string);
     void cargar(fstream& in);
     void salvar(fstream& out);
+    void imprimir();
 };
 
 
 class usuario {
 private:
-    list<nodo> lista;
+    vector<nodo> lista;
 public:
     void insertar();
     void buscar();
-    void cifrar();
+    void cifrar(string);
     void eliminar();
+    void imprimir();
     void cargar(fstream& in);
     void salvar(fstream& out);
-    void cifrar_descifar();
 };
 
 #endif LISTA_H
