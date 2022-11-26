@@ -21,6 +21,14 @@ int main()
 		switch (opc)
 		{
 		case 1:
+			system("cls");
+			fflush(stdin);
+			fflush(stdin);
+			cucei.insertar();
+			fflush(stdin);
+			fflush(stdin);
+			system("pause");
+			system("cls");
 			break;
 		case 2:
 			system("cls");
