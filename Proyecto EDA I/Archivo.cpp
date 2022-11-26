@@ -54,6 +54,28 @@ void usuario::buscar()
     cout << lista[i].contrasenia << endl;
 }
 
+void nodo::eliminar() {
+    this->imprimir();
+}
+
+
+void usuario::eliminar() {
+    string direccion;
+    int i;
+    fflush(stdin);
+    cout << "\n favor de ingresar aqui el nombre de usuario: ";
+    fflush(stdin);
+    getline(cin, direccion);
+
+    for (i = 0; i < lista.size(); i++) {
+        if (lista[i].buscar(direccion)) {
+            lista[i].eliminar();
+            lista.erase(lista.begin() + i);
+        }
+    }
+
+}
+
 void nodo::cargar(fstream& in) {
 
     in >> this->usuario;
