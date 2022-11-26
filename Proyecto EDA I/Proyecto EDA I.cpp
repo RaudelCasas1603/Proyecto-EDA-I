@@ -1,14 +1,14 @@
 
 #include <iostream>
 #include "Lista.h"
-#include <string.h>
+#include <string>
 #include <fstream>
 using namespace std;
 int main()
 {
     usuario cucei;
 	int opc=0;
-	string llave="zzz";
+	string llave="cucei";
 	fstream in, out;
 	do
 	{

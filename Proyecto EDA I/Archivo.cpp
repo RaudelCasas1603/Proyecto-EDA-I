@@ -4,15 +4,16 @@
 using namespace std;
 void nodo::insertar()
 {
-    fflush(stdin);
+
     cout << "\n favor de ingresar aqui el nombre de usuario: ";
-    getline(cin, this->usuario);
+    fflush(stdin);
+    cin >> this->usuario;
     fflush(stdin);
     cout << "\n favor de ingresar aqui la contraseña: ";
-    getline(cin, this->contrasenia);
+    cin >> this->contrasenia;
     fflush(stdin);
     cout << "\n favor de ingresar aqui la direccion: ";
-    getline(cin, this->direccion);
+    cin >> this->direccion;
     fflush(stdin);
 }
 
@@ -41,8 +42,8 @@ void usuario::buscar()
     string direccion;
     int i;
     fflush(stdin);
-    cout << "\n favor de ingresar aqui el nombre de usuario: ";
-    getline(cin, direccion);
+    cout << "\n favor de ingresar aqui el nombre del sitio: ";
+    cin >> direccion;
     for (i = 0; i < lista.size(); i++)
     {
         if (lista[i].buscar(direccion)) {
@@ -63,9 +64,9 @@ void usuario::eliminar() {
     string direccion;
     int i;
     fflush(stdin);
-    cout << "\n favor de ingresar aqui el nombre de usuario: ";
+    cout << "\n favor de ingresar aqui el nombre del sitio: ";
     fflush(stdin);
-    getline(cin, direccion);
+    cin >> direccion;
 
     for (i = 0; i < lista.size(); i++) {
         if (lista[i].buscar(direccion)) {
