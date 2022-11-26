@@ -13,9 +13,10 @@ private:
     string contrasenia;
     string direccion;
 public:
-    friend class lista;
+    friend class usuario;
     void insertar();
     void eliminar();
+    bool buscar(string);
     void cifrar(string);
     void cargar(fstream& in);
     void salvar(fstream& out);
