@@ -16,6 +16,7 @@ public:
     friend class usuario;
     void insertar();
     void eliminar();
+    void modificar();
     bool buscar(string);
     void cifrar(string);
     void cargar(fstream& in);
@@ -30,6 +31,7 @@ private:
 public:
     void insertar();
     void buscar();
+    void modificar();
     void cifrar(string);
     void eliminar();
     void imprimir();
