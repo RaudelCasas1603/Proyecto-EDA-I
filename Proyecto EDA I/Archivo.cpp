@@ -2,6 +2,57 @@
 #include <fstream>
 #include <string>
 using namespace std;
+void nodo::insertar()
+{
+    fflush(stdin);
+    cout << "\n favor de ingresar aqui el nombre de usuario: ";
+    getline(cin, this->usuario);
+    fflush(stdin);
+    cout << "\n favor de ingresar aqui la contraseña: ";
+    getline(cin, this->contrasenia);
+    fflush(stdin);
+    cout << "\n favor de ingresar aqui la direccion: ";
+    getline(cin, this->direccion);
+    fflush(stdin);
+}
+
+void usuario::insertar()
+{
+    nodo aux;
+    aux.insertar();
+    lista.push_back(aux);
+}
+
+
+bool nodo::buscar(string aux)
+{
+    if (this->direccion == aux)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void usuario::buscar()
+{
+    string direccion;
+    int i;
+    fflush(stdin);
+    cout << "\n favor de ingresar aqui el nombre de usuario: ";
+    getline(cin, direccion);
+    for (i = 0; i < lista.size(); i++)
+    {
+        if (lista[i].buscar(direccion)) {
+            break;
+        }
+    }
+    cout << lista[i].usuario << endl;
+    cout << lista[i].direccion << endl;
+    cout << lista[i].contrasenia << endl;
+}
 
 void nodo::cargar(fstream& in) {
 
