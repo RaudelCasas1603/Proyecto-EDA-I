@@ -65,7 +65,7 @@ void usuario::buscar()
     string direccion;
     int i;
     fflush(stdin);
-    cout << "\n favor de ingresar aqui direccion: ";
+    cout << "\n favor de ingresar aqui la direccion: ";
     cin>> direccion;
     for (i = 0; i < lista.size(); i++)
     {
@@ -115,7 +115,7 @@ void usuario::modificar()
     string direccion;
     int i;
     fflush(stdin);
-    cout << "\n favor de ingresar aqui el nombre de usuario: ";
+    cout << "\n favor de ingresar aqui la direccion: ";
     fflush(stdin);
     cin>> direccion;
     fflush(stdin);
