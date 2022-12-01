@@ -67,8 +67,6 @@ void usuario::buscar()
     fflush(stdin);
     cout << "\n favor de ingresar aqui la direccion: ";
     cin >> direccion;
-    cout << "\n favor de ingresar aqui la direccion: ";
-    cin>> direccion;
     for (i = 0; i < lista.size(); i++)
     {
         if (lista[i].buscar(direccion)) {
@@ -112,22 +110,6 @@ void nodo::modificar() {
 
 }
 
-void usuario::modificar()
-{
-    string direccion;
-    int i;
-    fflush(stdin);
-    cout << "\n favor de ingresar aqui la direccion: ";
-    fflush(stdin);
-    cin>> direccion;
-    fflush(stdin);
-    for (i = 0; i < lista.size(); i++) {
-        if (lista[i].buscar(direccion)) {
-        
-            break;
-        }
-    }
-    lista[i].modificar();
 void usuario::modificar()
 {
     string direccion;
