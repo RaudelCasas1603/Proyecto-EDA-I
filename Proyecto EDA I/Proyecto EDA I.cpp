@@ -4,12 +4,42 @@
 #include <string>
 #include <fstream>
 using namespace std;
+
+
+string procesamiento(string llave) {
+	int aux = 0;
+	char letra;
+	string resp;
+
+	for (int i = 0; i < llave.size(); i++) {
+		letra = llave.at(i);
+		aux += (int)letra;
+	}
+	while (aux > 122) {
+		aux = aux / 2;
+	}
+
+	letra = (char)aux;
+	resp.push_back(letra);
+	return resp;;
+}
+
+
 int main()
 {
     usuario cucei;
 	int opc=0;
-	string llave="cucei";
+	string pass;
+	string llave;
 	fstream in, out;
+
+	cout << "Administrador de Contrasenias" << endl;
+	cout << "Ingrese la contrasenia de Inicio: ";
+	cin >> pass;
+	llave=procesamiento(pass);//se pasa por un proceso de prepocesamiento de la contraseña de donde se extrae un char para manejarlo como llave
+	system("pause");
+	system("cls");
+
 	do
 	{
 		cout << "Administrador de Contraseñas" << endl;
@@ -22,7 +52,11 @@ int main()
 		{
 		case 1:
 			system("cls");
+			fflush(stdin);
+			fflush(stdin);
 			cucei.insertar();
+			fflush(stdin);
+			fflush(stdin);
 			system("pause");
 			system("cls");
 			break;
@@ -34,7 +68,7 @@ int main()
 			break;
 		case 3:
 			system("cls");
-			cucei.buscar();
+			cucei.modificar();
 			system("pause");
 			system("cls");
 			break;
@@ -49,7 +83,7 @@ int main()
 			in.open("Archivo.txt", ios_base::in);
 			cucei.cargar(in);
 			in.close();
-			cout << "Datos Cargados" << endl;
+			cout << "\t\tDatos Cargados" << endl;
 			system("pause");
 			system("cls");
 			break;
@@ -58,7 +92,7 @@ int main()
 			out.open("Archivo.txt", ios_base::out);
 			cucei.salvar(out);
 			out.close();
-			cout << "Datos guardados" << endl;
+			cout << "\t\tDatos guardados" << endl;
 			system("pause");
 			system("cls");
 			break;

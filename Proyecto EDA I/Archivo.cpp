@@ -1,17 +1,40 @@
 #include "Lista.h"
 #include <fstream>
 #include <string>
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
 using namespace std;
 void nodo::insertar()
 {
-
-    cout << "\n favor de ingresar aqui el nombre de usuario: ";
+    int op, i = 0;
+    char CA[10]; // CA = Char aleatorio.
+    string RP; // RP = random password.
     fflush(stdin);
+    cout << "\n favor de ingresar aqui el nombre de usuario: ";
     cin >> this->usuario;
     fflush(stdin);
-    cout << "\n favor de ingresar aqui la contraseña: ";
-    cin >> this->contrasenia;
+    cout << "\n Desea una contrasena generada por el sistema de ser asi ingrese 1: ";
+    cin >> op;
     fflush(stdin);
+    if (op == 1)
+    {
+        srand(time(NULL));
+        for (i = 0; i <= 9; i++) {
+            CA[i] = 33 + rand() % (126 - 33);
+            RP = RP + CA[i];
+        }
+        cout << "\n Su contasena es: " << RP << '\n';
+        this->contrasenia = RP;
+    }
+    else
+    {
+        fflush(stdin);
+        cout << "\n favor de ingresar aqui la contraseña: ";
+        cin >> this->contrasenia;
+        fflush(stdin);
+    }
     cout << "\n favor de ingresar aqui la direccion: ";
     cin >> this->direccion;
     fflush(stdin);
@@ -42,7 +65,7 @@ void usuario::buscar()
     string direccion;
     int i;
     fflush(stdin);
-    cout << "\n favor de ingresar aqui el nombre del sitio: ";
+    cout << "\n favor de ingresar aqui la direccion: ";
     cin >> direccion;
     for (i = 0; i < lista.size(); i++)
     {
@@ -64,7 +87,7 @@ void usuario::eliminar() {
     string direccion;
     int i;
     fflush(stdin);
-    cout << "\n favor de ingresar aqui el nombre del sitio: ";
+    cout << "\n favor de ingresar aqui la direccion: ";
     fflush(stdin);
     cin >> direccion;
 
@@ -75,6 +98,34 @@ void usuario::eliminar() {
         }
     }
 
+}
+
+void nodo::modificar() {
+    string NewP;
+    fflush(stdin);
+    cout << "\n favor de ingresar aqui la nueva contraseña: ";
+    fflush(stdin);
+    cin >> NewP;
+    this->contrasenia = NewP;
+
+}
+
+void usuario::modificar()
+{
+    string direccion;
+    int i;
+    fflush(stdin);
+    cout << "\n favor de ingresar aqui la direccion: ";
+    fflush(stdin);
+    cin >> direccion;
+    fflush(stdin);
+    for (i = 0; i < lista.size(); i++) {
+        if (lista[i].buscar(direccion)) {
+
+            break;
+        }
+    }
+    lista[i].modificar();
 }
 
 void nodo::cargar(fstream& in) {
@@ -113,7 +164,7 @@ void usuario::cifrar(string llave) {
 
     for (int i = 0; i < lista.size(); i++) {
         lista[i].cifrar(llave);
-   }
+    }
 }
 
 void nodo::cifrar(string llave) {
@@ -133,8 +184,6 @@ void nodo::cifrar(string llave) {
 }
 
 void nodo::imprimir() {
-    cout << this->usuario << endl;
-    cout << this->contrasenia << endl;
     cout << this->direccion << endl;
 }
 
@@ -144,3 +193,4 @@ void usuario::imprimir() {
         lista[i].imprimir();
     }
 }
+
