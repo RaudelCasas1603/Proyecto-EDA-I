@@ -188,6 +188,7 @@ void nodo::imprimir() {
 }
 
 void usuario::imprimir() {
+    cout << "\t\tHistorial de sitios" << endl;
     for (int i = 0; i < lista.size(); i++) {
         cout << i + 1 << endl;
         lista[i].imprimir();
