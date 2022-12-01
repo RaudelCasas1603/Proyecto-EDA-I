@@ -42,7 +42,7 @@ int main()
 
 	do
 	{
-		cout << "Administrador de Contraseñas" << endl;
+		cout << "Administrador de Contrasenas" << endl;
 		cout << "Ingrese la opcion que desee: " << endl;
 		cout << "1.Agregar\n2.Buscar\n3.Editar\n4.Eliminar\n5.Cargar\n6.Guardar\n7.Cifrar/Descifrar\n8.Listar\n9.Salir" << endl;
 		cout << ">";
@@ -110,8 +110,10 @@ int main()
 			system("cls");
 			break;
 		case 9:
+			cout << "\n Saliendo... \n";
 			break;
 		default:
+			cout << "\n Opccion invalida porfavor vuelva a intentar... \n";
 			break;
 		}
 
