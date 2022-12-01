@@ -66,6 +66,8 @@ void usuario::buscar()
     int i;
     fflush(stdin);
     cout << "\n favor de ingresar aqui la direccion: ";
+    cin >> direccion;
+    cout << "\n favor de ingresar aqui la direccion: ";
     cin>> direccion;
     for (i = 0; i < lista.size(); i++)
     {
@@ -126,6 +128,22 @@ void usuario::modificar()
         }
     }
     lista[i].modificar();
+void usuario::modificar()
+{
+    string direccion;
+    int i;
+    fflush(stdin);
+    cout << "\n favor de ingresar aqui la direccion: ";
+    fflush(stdin);
+    cin >> direccion;
+    fflush(stdin);
+    for (i = 0; i < lista.size(); i++) {
+        if (lista[i].buscar(direccion)) {
+
+            break;
+        }
+    }
+    lista[i].modificar();
 }
 
 void nodo::cargar(fstream& in) {
@@ -164,7 +182,7 @@ void usuario::cifrar(string llave) {
 
     for (int i = 0; i < lista.size(); i++) {
         lista[i].cifrar(llave);
-   }
+    }
 }
 
 void nodo::cifrar(string llave) {
@@ -184,14 +202,14 @@ void nodo::cifrar(string llave) {
 }
 
 void nodo::imprimir() {
-    cout << this->usuario << endl;
-    cout << this->contrasenia << endl;
     cout << this->direccion << endl;
 }
 
 void usuario::imprimir() {
+    cout << "\t\tHistorial de sitios" << endl;
     for (int i = 0; i < lista.size(); i++) {
         cout << i + 1 << endl;
         lista[i].imprimir();
     }
 }
+
